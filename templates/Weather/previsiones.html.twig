@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prevision de temperatura en {{ previsionesEspecificas.municipio }}, {{ previsionesEspecificas.provincia }}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}
+    <h2>Prevision de temperatura en {{ previsionesEspecificas.municipio }}, {{ previsionesEspecificas.provincia }} a {{ previsionesEspecificas.fechaElaboracion }} </h2>
+    <p1>Temperaturas:</p1>
+    <li>Maxima: {{ previsionesEspecificas.prevision.temperatura.maxima }}</li>
+    <li>Minima: {{ previsionesEspecificas.prevision.temperatura.minima }}</li>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

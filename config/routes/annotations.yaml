@@ -1,0 +1,12 @@
+#controllers:
+#    resource: ../../src/Controller/
+#    type: annotation
+rest:
+    type: rest
+    resource: '../../src/Controller'
+    prefix: /api
+
+twig:
+    type: annotation
+    resource: '../../src/Controller'
+    prefix: /

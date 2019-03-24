@@ -1,0 +1,2 @@
+aemet:
+    apikey: '%env(AEMET_APIKEY)%'

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listado municipios</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}
+    Municipios de {{ provincia }}
+    <div id="display-resources">
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        var provincia = '{{ provincia }}';
+        var displayResources = $("#display-resources");
+        displayResources.text("Cargando...");
+        $.get( "http://127.0.0.1:8000/api/municipios/"+provincia, function(data) {
+            var output =
+                "<table><thead><tr><th>Nombre</th></thead><tbody>";
+            for (var i in data) {
+                output +=
+                    "<tr><td>" +
+                    data[i].nombre +
+                    "</td><td>";
+            }
+            output += "</tbody></table>";
+
+            displayResources.html(output);
+            $("table").addClass("table");
+        });
+    </script>
+{% endblock %}
+</body>
+</html>
